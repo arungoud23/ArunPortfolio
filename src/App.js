@@ -1,60 +1,34 @@
-import React from "react";
-import styled from "styled-components";
-import './App.css';
-import {ThemeProvider} from "styled-components";
 import About from "./Components/About/About";
 import Contact from "./Components/Contact/Contact";
-import Footer from "./Components/Footer/Footer";
-import ToTop from "./Components/Elements/ToTop";
-import Head from "./Components/Head/Head";
-import Slide from "./Components/Slide/Slide";
-import lightHome from "./Components/Images/sceneOne.svg";
-import darkHome from "./Components/Images/sceneOneDark.svg";
+import Hero from "./Components/Hero/Hero";
+import  {Navbar}  from "./Components/Navbar";
+import Navbar1 from "./Components/Navbar1";
+import Projects from "./Components/Projects/Projects";
+import Skills from "./Components/Skills/Skills";
 
 
-
-const LightTheme = {
-  body: "#001220",
-  fontColor: "#fff",
-  secondary: "#fec107",
-  iconFilter: "saturate(5%)  invert(0%)",
-  profileBg: "#f8f5f1",
-  header: lightHome,
-};
-//#151515
-const DarkTheme = {
-  body: "#000",
-  fontColor: "#fff",
-  secondary: "#C50E6A",
-  iconFilter: "saturate(5%)  invert(100%)",
-  profileBg: "#151515",
-  header: darkHome,
-};
-
-const themes = {
-  light: LightTheme,
-  dark: DarkTheme,
-};
+import FixSocialIcon from "./Components/SocialIcon/FixSocialIcon";
 
 function App() {
-  const [currentTheme,setCurrentTheme] = React.useState("light");
-  const themeToggler = () => {
-    currentTheme === "light" ? setCurrentTheme("dark") : setCurrentTheme("light");
-  };
-  
-  
   return (
-    <ThemeProvider theme={themes[currentTheme]}>
-      <div className="App">
-         <ToTop></ToTop>
-         <Head currentTheme={currentTheme} themeToggler={themeToggler}></Head>
-         <About></About>
-         <Slide currentTheme={currentTheme}></Slide>
-         <Contact currentTheme={currentTheme}></Contact>
-         <Footer></Footer>
-      </div>
-      </ThemeProvider>
-   
+    <div>
+      <Navbar1/>
+      {/* <Navbar/> */}
+      <section id="hero">
+          <Hero />
+          </section>
+          <section id="about-me">
+          <About />
+          </section>
+          <section id='skills'>
+          <Skills  />
+          </section>
+          <Projects />
+          <section id="contact">
+          <Contact />
+          </section>
+          <FixSocialIcon />
+    </div>
   );
 }
 
